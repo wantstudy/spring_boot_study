@@ -4,9 +4,11 @@ import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.example.application.SessionInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ public class FastJsonConfiguration extends WebMvcConfigurationSupport{
 
     @Override
     protected void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        System.out.printf("------------configureMessageConverters-------------");
         //调用父类配置
         super.configureMessageConverters(converters);
         //创建fastjson消息转换器
@@ -67,5 +70,4 @@ public class FastJsonConfiguration extends WebMvcConfigurationSupport{
         //将fastjson添加到视图消息转换器列表内
         converters.add(fastJsonHttpMessageConverter);
     }
-
 }
