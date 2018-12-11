@@ -41,5 +41,11 @@ spring:
 #          reset-enable: false
 #          url-pattern: /druid/*
   jpa:
+    #显示sql
     show-sql: true
     format_sql: true
+
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
