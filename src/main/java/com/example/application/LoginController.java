@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,7 +30,7 @@ public class LoginController {
     private IUserService userService;
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String login(HttpServletRequest request,User paramUser){
+    public String login(HttpServletRequest request, HttpServletResponse response,User paramUser){
         ExampleMatcher exampleMatcher = ExampleMatcher.matching()
                 .withIgnorePaths("password");
         List<User> userList = userService.findAll(Example.of(paramUser,exampleMatcher));
@@ -39,11 +41,18 @@ public class LoginController {
                         &&
                         paramUser.getPassword().equals(user.getPassword())
         ).count();
-        if(count < 1)
+        if(count < 1) {
             return "密码不正确";
-        else
-            request.getSession().setAttribute("_session_user",paramUser);
+        }else {
+            request.getSession().setAttribute("_session_user", paramUser);
+            try {
+                response.sendRedirect("/index");
+            } catch (IOException e) {
+                e.printStackTrace();
+                return "登陆失败";
+            }
             return "登陆成功";
+        }
     }
 
 }

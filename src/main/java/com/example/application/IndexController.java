@@ -22,4 +22,9 @@ public class IndexController {
         return "login";
     }
 
+    @RequestMapping(value = "/file",method = RequestMethod.GET)
+    public String file(){
+        return "file";
+    }
+
 }
