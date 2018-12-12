@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 /**
  * @Auther: WangWeiWei
  * @Date: 2018/12/11 0011
- * @Description: druid 监控配置 也可以采用配置文件方式  application.xml spring.datasource.druid
+ * @Description: druid 监控配置
  * 访问路径 localhost:8081/druid/login.html
  */
 @Configuration

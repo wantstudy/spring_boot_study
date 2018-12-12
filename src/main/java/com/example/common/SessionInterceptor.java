@@ -1,4 +1,4 @@
-package com.example.application;
+package com.example.common;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 
