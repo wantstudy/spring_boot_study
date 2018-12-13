@@ -10,7 +10,7 @@ spring:
   datasource:
       type: com.alibaba.druid.pool.DruidDataSource
       url: jdbc:mysql://47.93.232.108:3306/WN?characterEncodeing=utf-8
-      driver-class-name: com.mysql.jdbc.Driver
+      driver-class-name: com.mysql.cj.jdbc.Driver
       username: root
       password: root
       #配置监控拦截的filters
@@ -31,6 +31,9 @@ spring:
       testWhileIdle: true
       testOnBorrow: false
       testOnReturn: false
+  jpa:
+    show-sql: true
+
 
 # druid 监控配置
 #      druid:
@@ -46,7 +49,3 @@ spring:
 #          login-password: druid
 #          reset-enable: false
 #          url-pattern: /druid/*
-  jpa:
-    #显示sql
-    show-sql: true
-    format_sql: true

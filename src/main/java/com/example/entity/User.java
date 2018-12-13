@@ -1,8 +1,10 @@
 package com.example.entity;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -14,13 +16,14 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table(name="t_user_info")
-public class User implements Serializable {
+public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
 
+    @NotNull
     @Column(name="user_name")
     private String userName;
 

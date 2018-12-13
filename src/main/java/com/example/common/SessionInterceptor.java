@@ -21,10 +21,10 @@ public class SessionInterceptor implements HandlerInterceptor{
             return true;
 
         Object obj = request.getSession().getAttribute("_session_user");
-        if(obj == null) {
-            response.sendRedirect("/login");
-            return false;
-        }
+        //if(obj == null) {
+        //    response.sendRedirect("/login");
+        //    return false;
+        //}
         return true;
     }
 }

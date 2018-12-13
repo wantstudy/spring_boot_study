@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @Description:
  */
 @NoRepositoryBean
-public interface BaseService<T> extends JpaRepository<T,Long>,
+public interface BaseService<T,ID> extends JpaRepository<T,ID>,
         JpaSpecificationExecutor<T>,
         Serializable{
 }
