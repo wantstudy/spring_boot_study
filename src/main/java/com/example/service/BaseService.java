@@ -1,18 +1,17 @@
 package com.example.service;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.data.repository.NoRepositoryBean;
 
-import java.io.Serializable;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  * @Auther: WangWeiWei
  * @Date: 2018/12/11 0011
  * @Description:
  */
-@NoRepositoryBean
-public interface BaseService<T,ID> extends JpaRepository<T,ID>,
-        JpaSpecificationExecutor<T>,
-        Serializable{
+public class BaseService{
+
+    @PersistenceContext
+    protected EntityManager entityManager;
+
 }

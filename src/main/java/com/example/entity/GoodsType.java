@@ -13,8 +13,8 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
-@Table(name="t_user_info")
-public class User extends BaseEntity {
+@Table(name="t_goods_type")
+public class GoodsType extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,11 +22,8 @@ public class User extends BaseEntity {
     private Long id;
 
     @NotNull
-    @Column(name="user_name")
-    private String userName;
-
-    @Column(name="password")
-    private String password;
+    @Column(name="type_name")
+    private String typeName;
 
     public Long getId() {
         return id;
@@ -36,19 +33,11 @@ public class User extends BaseEntity {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getTypeName() {
+        return typeName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 }

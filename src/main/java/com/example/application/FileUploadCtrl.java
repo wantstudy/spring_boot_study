@@ -22,7 +22,7 @@ import java.util.UUID;
  */
 @RestController
 @RequestMapping(value = "/file")
-public class FileUploadController {
+public class FileUploadCtrl {
 
     @RequestMapping(value = "/upload",method = RequestMethod.POST)
     public @ResponseBody String upload(HttpServletRequest request,MultipartFile file){

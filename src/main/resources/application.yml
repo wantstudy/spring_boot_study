@@ -2,11 +2,6 @@ server:
   port: 8081
 
 spring:
-# jsp 配置
-#  mvc:
-#    view:
-#      prefix: /WEB-INF/jsp/
-#      suffix: .jsp
   datasource:
       type: com.alibaba.druid.pool.DruidDataSource
       url: jdbc:mysql://47.93.232.108:3306/WN?characterEncodeing=utf-8
@@ -33,6 +28,16 @@ spring:
       testOnReturn: false
   jpa:
     show-sql: true
+  redis:
+    host: 47.93.232.108
+    port: 6379
+    database: 0
+    jedis:
+      pool:
+        max-active: 10
+        max-idle: 20
+        min-idle: 1
+        max-wait: 60000
 
 
 # druid 监控配置

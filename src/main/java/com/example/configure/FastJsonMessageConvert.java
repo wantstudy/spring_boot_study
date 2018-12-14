@@ -1,4 +1,4 @@
-package com.example.common;
+package com.example.configure;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
