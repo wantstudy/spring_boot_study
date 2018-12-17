@@ -27,6 +27,8 @@ public interface IUserService {
 
     User findById(long l);
 
+    List<User> findUsersInfo(PageRequest pageRequest);
+
     User save(User user);
 
     void deleteById(long l);

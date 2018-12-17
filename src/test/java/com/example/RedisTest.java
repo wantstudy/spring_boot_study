@@ -36,6 +36,11 @@ public class RedisTest {
         System.out.println("get key value:"+ redisUtil.getValue("key"));
     }
 
+    /**
+     * 启动类加入注解 @EnableCaching
+     * 需要缓存的方法加入 @Cacheable(cacheNames = "user"),存入的redis key= user::aa
+     * 测试springboot redis
+     */
     @Test
     public void findUsersByUserName(){
         userService.findUsersByUserName("aa");
@@ -47,19 +52,19 @@ public class RedisTest {
 
     /**
      * 性能测试
-     * 1万次查询，10个线程同时操作findAll方法
+     * 10万次查询，100个线程同时操作findAll方法
      */
     @Test
-    @PerfTest(invocations = 10000, threads = 10)
+    @PerfTest(invocations = 100000, threads = 100)
     public void contextLoads_redis() {
         userService.findUsersByUserName("aa");
     }
 
     /**
-     * 普通测试
+     * 普通方法测试,去掉 @Cacheable ,与性能测试对比
      */
     @Test
-    @PerfTest(invocations = 10000, threads = 100)
+    @PerfTest(invocations = 100000, threads = 100)
     public void contextLoads() {
         userService.findUsersByUserName("aa");
     }

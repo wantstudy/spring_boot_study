@@ -7,7 +7,6 @@ import com.example.entity.QGoods;
 import com.example.service.BaseService;
 import com.example.service.IGoodsService;
 import com.querydsl.core.types.dsl.BooleanExpression;
-import com.querydsl.jpa.impl.JPAQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,9 +30,7 @@ public class GoodsService extends BaseService implements IGoodsService{
     @Override
     public List<Goods> getGoodsList(Goods goods) {
 
-        JPAQuery<Goods> qGoodsJPAQuery = new JPAQuery<>(entityManager);
-
-        return qGoodsJPAQuery
+        return queryFactory
                 .select(qGoods)
                 .from(qGoods)
                 .fetch();
@@ -42,9 +39,8 @@ public class GoodsService extends BaseService implements IGoodsService{
     @Override
     public List<Goods> getGoodsListByType(Goods goods) {
 
-        JPAQuery<QGoods> qGoodsJPAQuery = new JPAQuery<>(entityManager);
 
-        return qGoodsJPAQuery
+        return queryFactory
                 .select(qGoods)
                 .from(qGoods)
                 .where(qGoods.goodsType.id.eq(Long.valueOf("1")))

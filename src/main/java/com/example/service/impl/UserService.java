@@ -1,7 +1,8 @@
 package com.example.service.impl;
 
+import com.example.entity.*;
 import com.example.jpa.UserJPA;
-import com.example.entity.User;
+import com.example.service.BaseService;
 import com.example.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -18,7 +19,7 @@ import java.util.List;
  * @Description:
  */
 @Service
-public class UserService implements IUserService{
+public class UserService extends BaseService implements IUserService{
 
     @Autowired
     private UserJPA userJPA;
@@ -57,6 +58,19 @@ public class UserService implements IUserService{
     @Override
     public User findById(long l) {
         return userJPA.findById(l).get();
+    }
+
+    @Override
+    public List<User> findUsersInfo(PageRequest pageRequest) {
+        QUser qUser = QUser.user;
+        QRole qrole = QRole.role;
+        QUserRole qUserRole = QUserRole.userRole;
+
+        return queryFactory
+                .select(qUser)
+                .leftJoin(qrole).on(qUser.id.eq(qUserRole.id))
+                .fetch();
+
     }
 
     @Override
