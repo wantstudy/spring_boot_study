@@ -2,6 +2,9 @@ package com.example;
 
 import com.example.common.RedisUtil;
 import com.example.service.IUserService;
+import org.databene.contiperf.PerfTest;
+import org.databene.contiperf.junit.ContiPerfRule;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +38,29 @@ public class RedisTest {
 
     @Test
     public void findUsersByUserName(){
+        userService.findUsersByUserName("aa");
+    }
+
+
+    @Rule
+    public ContiPerfRule i = new ContiPerfRule();
+
+    /**
+     * 性能测试
+     * 1万次查询，10个线程同时操作findAll方法
+     */
+    @Test
+    @PerfTest(invocations = 10000, threads = 10)
+    public void contextLoads_redis() {
+        userService.findUsersByUserName("aa");
+    }
+
+    /**
+     * 普通测试
+     */
+    @Test
+    @PerfTest(invocations = 10000, threads = 100)
+    public void contextLoads() {
         userService.findUsersByUserName("aa");
     }
 }
