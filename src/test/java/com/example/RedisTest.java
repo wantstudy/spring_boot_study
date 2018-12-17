@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.common.RedisUtil;
+import com.example.service.IUserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class RedisTest {
     @Autowired
     RedisUtil redisUtil;
 
+    @Autowired
+    IUserService userService;
+
     @Test
     public void findAllUsers()  {
         redisUtil.setValue("key","hello");
@@ -27,5 +31,10 @@ public class RedisTest {
     @Test
     public void findAllUsers2()  {
         System.out.println("get key value:"+ redisUtil.getValue("key"));
+    }
+
+    @Test
+    public void findUsersByUserName(){
+        userService.findUsersByUserName("aa");
     }
 }
