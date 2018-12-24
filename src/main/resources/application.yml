@@ -33,6 +33,9 @@ spring:
       testOnReturn: false
   jpa:
     show-sql: true
+  redis:
+    port: 6379
+    host: 47.93.232.108
 
 
 # druid 监控配置
