@@ -26,4 +26,11 @@
     
     重写 addInterceptors 方法
 
+## validator 校验
 
+实体类： [UserEntityVo](/com/example/entity/vo/UserEntityVo)
+
+### 自定义注解
+
+注解： [FlagValidator](com/example/nnotation/FlagValidator)
+注解配置类： [FlagValidatorClass](com/example/annotation/annoclass/FlagValidatorClass)
