@@ -3,26 +3,18 @@ package com.example;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @SpringBootApplication
-//@EnableAutoConfiguration
+@EnableCaching
 public class StudyApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(StudyApplication.class, args);
 	}
 
-	/**
-	 * jsp配置
-	 * 等同于 application 中
-	 * spring:
-		 mvc:
-		 view:
-		 prefix: /WEB-INF/jsp/
-		 suffix: .jsp
-	 */
 	@Bean
 	public InternalResourceViewResolver setupViewResolver() {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();

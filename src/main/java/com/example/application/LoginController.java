@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @author weiwei
@@ -31,6 +30,8 @@ public class LoginController {
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(HttpServletRequest request, HttpServletResponse response,User paramUser){
+
+        //使用spring data jpa 查询
         ExampleMatcher exampleMatcher = ExampleMatcher.matching()
                 .withIgnorePaths("password");
         List<User> userList = userService.findAll(Example.of(paramUser,exampleMatcher));

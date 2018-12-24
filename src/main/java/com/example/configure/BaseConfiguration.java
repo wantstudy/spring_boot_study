@@ -1,4 +1,4 @@
-package com.example.common;
+package com.example.configure;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;

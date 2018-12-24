@@ -7,22 +7,22 @@
 
 控制层: [UserController](/src/main/java/com/example/controller/UserController.java)
 
-接口层: [IUserService](/src/main/java/com/example/service/IUserService.java)
+接口层: [IUserService](/com/example/dao/IUserService.java)
 
 ## 使用druid做项目数据源,使用druid监控
-主类 :[DruidConfigure](/src/main/java/com/example/common/DruidConfigure.java)
+主类 :[DruidConfigure](/com/example/configure/DruidConfigure.java)
 
 ## fastjson 转换输出数据
-主类 :[FastJsonMessageConvert](/src/main/java/com/example/common/FastJsonMessageConvert.java)
+主类 :[FastJsonMessageConvert](/com/example/configure/FastJsonMessageConvert.java)
 
-配置类: [BaseConfiguration](/src/main/java/com/example/common/BaseConfiguration.java)
+配置类: [BaseConfiguration](/com/example/configure/BaseConfiguration.java)
     
     重写 configureMessageConverters 方法
 
 ## intercepter 拦截器(登陆)
 主类: [LoginController](/src/main/java/com/example/application/LoginController.java)
 
-配置类: [BaseConfiguration](/src/main/java/com/example/common/BaseConfiguration.java)
+配置类: [BaseConfiguration](/com/example/configure/BaseConfiguration.java)
     
     重写 addInterceptors 方法
 

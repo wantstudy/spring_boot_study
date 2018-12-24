@@ -3,10 +3,8 @@ package com.example.controller;
 import com.example.entity.User;
 import com.example.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,8 +32,7 @@ public class UserController {
     @ResponseBody
     public List<User> getUserInfoPage(User user){
         //Sort sort = new Sort();
-        PageRequest pageRequest = PageRequest.of(user.getPage(),user.getSize());
-        return userService.findAll(pageRequest).getContent();
+        return userService.findAll(PageRequest.of(user.getPage(),user.getSize()));
     }
 
     @RequestMapping(value = "/getUserInfoSortPage",method = RequestMethod.GET)
@@ -43,14 +40,13 @@ public class UserController {
     public List<User> getUserInfoSortPage(User user){
         Sort sort = new Sort(Sort.Direction.DESC,user.getSortSid());
         PageRequest pageRequest = PageRequest.of(user.getPage(),user.getSize(),sort);
-        return userService.findAll(pageRequest).getContent();
+        return userService.findAll(pageRequest);
     }
-
 
     @RequestMapping(value = "/getUserInfo/{id}",method = RequestMethod.GET)
     @ResponseBody
     public User getUserInfo(@PathVariable(value = "id") String id){
-        return userService.findById(Long.parseLong(id)).get();
+        return userService.findById(Long.parseLong(id));
     }
 
     @RequestMapping(value = "/saveUser",method = RequestMethod.GET)
@@ -69,8 +65,14 @@ public class UserController {
         return userService.findUsersNaviteLike(userName);
     }
 
+    @GetMapping(value = "/findUsersByUserName/{userName}")
+    @ResponseBody
+    public List<User> findUsersByUserName(@PathVariable("userName") String userName){
+        return userService.findUsersNaviteLike(userName);
+    }
     @RequestMapping(value = "/deleteUserByNaviteQuery",method = RequestMethod.GET)
     public void deleteUserByNaviteQuery(@RequestParam(value = "id") String id,@RequestParam(value = "userName") String userName){
         userService.deleteUserByNaviteQuery(Long.parseLong(id),userName);
     }
+
 }
