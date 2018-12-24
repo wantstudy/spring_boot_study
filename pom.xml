@@ -97,7 +97,6 @@
 			<groupId>com.querydsl</groupId>
 			<artifactId>querydsl-apt</artifactId>
 			<version>${querydsl.version}</version>
-			<scope>provided</scope>
 		</dependency>
 
 
@@ -132,6 +131,7 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 		</dependency>
+
 
 		<!--支持jstl标签-->
 		<dependency>
