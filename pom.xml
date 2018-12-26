@@ -111,6 +111,11 @@
 
 
 		<!--  #############  util start #############  -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.7.0</version>
+		</dependency>
 
 		<!-- 加入fastjson支持,处理返回视图的数据 -->
 		<dependency>

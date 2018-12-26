@@ -34,3 +34,8 @@
 
 注解： [FlagValidator](com/example/nnotation/FlagValidator)
 注解配置类： [FlagValidatorClass](com/example/annotation/annoclass/FlagValidatorClass)
+
+## 全局异常处理
+
+实体类：[ApiResult](com/example/common/bean/ApiResult)
+生成工具类：[ApiResultGenerator](com/example/common/ApiResultGenerator)
