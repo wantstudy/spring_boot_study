@@ -17,6 +17,8 @@ public interface UserJPA extends BaseJPA<User,Long> {
 
     public List<User> findUsersByUserName(String UserName);
 
+    public User findUserByUserName(String userName);
+
     //使用原生sql查询
     @Query(value = "select * from t_user_info where user_name like %?1%",nativeQuery = true)
     public List<User> findUsersNaviteLike(String UserName);

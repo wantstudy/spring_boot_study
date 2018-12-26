@@ -18,7 +18,7 @@
 ///**
 // * @Auther: WangWeiWei
 // * @Date: 2018/12/14 0014
-// * @Description: redis 配置类 2.0以上
+// * @Description: redis 配置类 2.0以下
 // *
 // */
 //@Configuration

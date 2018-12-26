@@ -9,6 +9,9 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +22,7 @@ import java.util.List;
  * @Description:
  */
 @Service
-public class UserService extends BaseService implements IUserService{
+public class UserService extends BaseService implements IUserService,UserDetailsService{
 
     @Autowired
     private UserJPA userJPA;
@@ -81,5 +84,14 @@ public class UserService extends BaseService implements IUserService{
     @Override
     public void deleteById(long l) {
         userJPA.deleteById(l);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String UserName) throws UsernameNotFoundException {
+        User user = userJPA.findUserByUserName(UserName);
+        if(user == null){
+            throw new UsernameNotFoundException("未找到用户 "+ UserName +" 信息");
+        }
+        return user;
     }
 }

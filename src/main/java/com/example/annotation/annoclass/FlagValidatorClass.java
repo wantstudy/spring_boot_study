@@ -8,10 +8,8 @@ import java.util.Arrays;
 
 /**
  * @author weiwei
- * @Title: ${file_name}
- * @Package ${package_name}
- * @Description: ${todo}
- * @date 2018/12/2422:01
+ * @Description: 校验注解依赖类
+ * @date 2018/12/24 22:01
  */
 public class FlagValidatorClass implements ConstraintValidator<FlagValidator,Object>{
 
