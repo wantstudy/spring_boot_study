@@ -25,7 +25,7 @@ public class ServletConfig {
 
 //方法2 开启自动装配servelt,装配依赖 @WebServlet
 @Configuration
-@ServletComponentScan(basePackages = "com.example")
+@ServletComponentScan(basePackages = "com.example.servlet")
 public class ServletConfig {
 
 }

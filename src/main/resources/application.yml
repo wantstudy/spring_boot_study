@@ -39,7 +39,10 @@ spring:
         max-idle: 20
         min-idle: 1
         max-wait: 60000
-
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
 
 
 # druid 监控配置

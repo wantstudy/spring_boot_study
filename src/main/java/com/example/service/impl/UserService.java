@@ -22,7 +22,9 @@ import java.util.List;
  * @Description:
  */
 @Service
-public class UserService extends BaseService implements IUserService,UserDetailsService{
+public class UserService extends BaseService implements IUserService
+            ,UserDetailsService
+{
 
     @Autowired
     private UserJPA userJPA;

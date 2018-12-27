@@ -1,6 +1,7 @@
 package com.example.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.Proxy;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,10 +20,11 @@ import java.util.List;
  * @Description:
  */
 
-@Data
 @Entity
 @Table(name="t_user_info")
-public class User extends BaseEntity implements Serializable,UserDetails{
+public class User extends BaseEntity implements Serializable
+        ,UserDetails
+{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +38,7 @@ public class User extends BaseEntity implements Serializable,UserDetails{
     @Column(name="password")
     private String password;
 
-    @ManyToMany
+    @OneToMany
     @JoinTable(
             name = "t_user_role_info",
             joinColumns = {
@@ -117,5 +119,10 @@ public class User extends BaseEntity implements Serializable,UserDetails{
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "username:"+userName+" password:"+password;
     }
 }

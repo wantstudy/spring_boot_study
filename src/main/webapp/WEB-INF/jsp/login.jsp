@@ -11,8 +11,9 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/user/login" method="post">
-    用户名：<input type="text" name="userName"/>
+<form action="/login" method="post">
+    <%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
+    用户名：<input type="text" name="username"/>
     密码：<input type="password" name="password"/>
     <input type="submit" value="登陆">
 </form>

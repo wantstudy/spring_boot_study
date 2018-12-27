@@ -1,6 +1,7 @@
 package com.example.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,7 +11,6 @@ import java.io.Serializable;
  * @Date: 2018/12/17 0017
  * @Description:
  */
-@Data
 @Entity
 @Table(name = "t_user_role")
 public class Role extends BaseEntity implements Serializable{
